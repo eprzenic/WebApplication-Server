@@ -53,7 +53,7 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 # Development
 #### run command: 
 - **gulp**
-##### which will lint the app, watch for changes, and start the web server (except for mongod)
+  - which will lint the app, watch for changes, and start the web server (except for mongod)
 - gulpfile.js
   - lint
   - watch
