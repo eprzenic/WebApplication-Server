@@ -60,8 +60,8 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
   - server
 
 # Live Running
-- npm install, mongo, server!
-#### Windows
-- run.bat
-#### OSX & Linux
-- run.sh
+##### npm install, mongo, server!
+- Windows
+  - run.bat
+- OSX & Linux
+  - run.sh
