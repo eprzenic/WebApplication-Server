@@ -11,14 +11,14 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 ## app
 #### consists of application code
 ### assets
-#### 3rd party vendor code that requires compilation
+##### 3rd party vendor code that requires compilation
 - css
   - *.style
 - js
   - *.js
 - *
 ### config
-#### app options and linking
+##### app options and linking
 - mongo
   - connection, model, ...
 - router
@@ -26,34 +26,34 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 - *
 
 ### controllers
-#### data manipulation with the model's state
+##### data manipulation with the model's state
 - *
 
 ### models
-#### represents data that handles storage using mongo schemas
+##### represents data that handles storage using mongo schemas
 
 ### routes
-#### determining response to request to a particular endpoint (GET, PUT, PST, DELETE, and so on)
+##### determining response to request to a particular endpoint (GET, PUT, PST, DELETE, and so on)
 
 ### views
-#### manages the display of information from route requested and controller retrieving model
+##### manages the display of information from route requested and controller retrieving model
 
 ## public
-#### compiled/static files server to browser
+##### compiled/static files server to browser
 - images
 - html
 - *
 
 ## tests
-#### mocha as test framework, chai for assertion and sinon as spyes/stubs/mocks
+##### mocha as test framework, chai for assertion and sinon as spyes/stubs/mocks
 
 ## server.js & app.coffee
-#### initializes the app and glues everything together
+##### initializes the app and glues everything together
 
 # Development
-## run command: 
+#### run command: 
 - **gulp**
-### which will lint the app, watch for changes, and start the web server (except for mongod)
+##### which will lint the app, watch for changes, and start the web server (except for mongod)
 - gulpfile.js
   - lint
   - watch
@@ -61,7 +61,7 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 
 # Live Running
 - npm install, mongo, server!
-### Windows
+#### Windows
 - run.bat
-### OSX & Linux
+#### OSX & Linux
 - run.sh
