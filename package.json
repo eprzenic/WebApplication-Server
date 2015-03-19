@@ -1,0 +1,63 @@
+{
+  "name": "Server",
+  "version": "0.0.1",
+  "author": "justinlhudson",
+  "description": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "private": "true",
+  "main": "server.js",
+  "scripts": {
+    "test": ""
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "connect-assets": "*",
+    "errorhandler": "*",
+    "express": "*",
+    "iced-coffee-script": "*",
+    "jade": "*",
+    "lodash": "*",
+    "method-override": "*",
+    "mongoose": "*",
+    "connect-mongo": "*",
+    "morgan": "*",
+    "multer": "*",
+    "nib": "*",
+    "serve-static": "*",
+    "socket.io": "*",
+    "stylus": "*",
+    "cookie-parser": "*",
+    "moment": "*",
+    "tcp-port-used": "*",
+    "ps-tree": "*",
+    "marked": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "sinon": "*",
+    "coffeelint": "*",
+    "node-inspector": "*",
+    "forever-monitor": "*",
+    "gulp": "*",
+    "gulp-coffee": "*",
+    "gulp-iced-coffee": "*",
+    "gulp-coffeelint": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-nodemon": "*",
+    "gulp-stylus": "*",
+    "gulp-develop-server": "*",
+    "gulp-mocha": "*"
+  },
+  "engines": {
+    "forever": "*",
+    "gulp": "*",
+    "nodemon": "*",
+    "node": "*",
+    "npm": "*"
+  }
+}

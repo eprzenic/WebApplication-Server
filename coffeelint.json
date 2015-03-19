@@ -1,0 +1,27 @@
+{
+    "no_tabs": {
+        "name": "no_tabs",
+        "level": "warn"
+    },
+    "no_trailing_whitespace": {
+        "name": "no_trailing_whitespace",
+        "level": "warn",
+        "allowed_in_comments": false,
+        "allowed_in_empty_lines": false
+    },
+    "max_line_length": {
+        "name": "max_line_length",
+        "value": 120,
+        "level": "warn",
+        "limitComments": true
+    },
+    "no_trailing_semicolons": {
+        "name": "no_trailing_semicolons",
+        "level": "warn"
+    },
+    "indentation": {
+        "name": "indentation",
+        "value": 2,
+        "level": "warn"
+    }
+}

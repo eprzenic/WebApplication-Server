@@ -1,0 +1,8 @@
+{
+  "SERVER": {
+    "PORT": "3000"
+  },
+  "MONGO": {
+    "CONNECTION": "mongodb://localhost/Server"
+  }
+}
