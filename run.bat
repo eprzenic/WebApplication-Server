@@ -7,4 +7,5 @@ taskkill /F /IM node.exe > nul 2>&1
 start mongod --dbpath C:\Temp\data
 
 call npm install
+call bower install
 call forever -m 6 server.js
