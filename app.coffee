@@ -14,6 +14,9 @@ methodOverride = require('method-override')
 serveStatic = require('serve-static')
 multer = require('multer')
 
+## Global (visibility)  ##
+global._ = require('lodash')
+
 # Create/Setup app instance #
 app = express()
 
@@ -23,7 +26,9 @@ app.set('port', process.env.PORT || config.SERVER.PORT)
 
 # tell express that we want to use Jade, and where we will keep our views
 app.set('views', path.join(__dirname, 'app', 'views'))
+app.set('view options',{ locals: { } })
 app.set('view engine', 'jade')
+#app.locals.<variable/function>
 
 # pass 'middleware' functions for express to use
 app.use(morgan('dev'))
@@ -65,7 +70,7 @@ app.use assets(
 require('./app/config/mongo')
 
 # Routing #
-router = require('./app/config/router')
+router = require('./app/routes/router')
 app.use('/', router)
 
 server = require('http').createServer(app)
@@ -79,3 +84,6 @@ io.on('connection', () ->
 server.listen(app.get('port'), () ->
   console.log('Node listening on port ' + app.get('port'))
 )
+
+# export app object
+module.exports = app;

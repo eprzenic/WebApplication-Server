@@ -1,5 +1,4 @@
-mongoose = require 'mongoose'
-
+mongoose = require('mongoose')
 Schema = mongoose.Schema
 
 LogSchema = new Schema
@@ -22,7 +21,5 @@ LogSchema.pre 'save', (next) ->
 #  log.value = override
   next()
 
-
 # Use the schema to register a model with MongoDb
-mongoose.model('Log', LogSchema)
-Log = mongoose.model('Log')
+Log = mongoose.model('Log', LogSchema)

@@ -1,0 +1,14 @@
+extend ../layout
+block content
+  ul
+    for log in logs
+      li #{log.type} - #{log.name}
+      li=log.value
+      br
+block sidebar
+  .widget
+    h1 Widget
+    p
+      | derp derp derp
+    p
+      | hello world!

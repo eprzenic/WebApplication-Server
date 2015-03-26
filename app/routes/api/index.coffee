@@ -1,8 +1,8 @@
-# GET home page.
-exports.index = (req, res) ->
-  res.render('index', title: 'Api')
+module.exports = (router) ->
 
-exports.raw = (req, res) ->
-  console.log req
-#  console.log res
-  res.send('Hello Raw World!')
+  raw = (req, res) ->
+    console.log req
+    #  console.log res
+    res.send('Hello Raw World!')
+
+  router.get '/api', raw

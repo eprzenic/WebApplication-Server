@@ -22,7 +22,7 @@
     "jade": "*",
     "lodash": "*",
     "method-override": "*",
-    "mongoose": "*",
+    "mongoose": "3.8.*",
     "connect-mongo": "*",
     "morgan": "*",
     "multer": "*",
@@ -34,7 +34,8 @@
     "moment": "*",
     "tcp-port-used": "*",
     "ps-tree": "*",
-    "marked": "*"
+    "marked": "*",
+    "node-dir": "*"
   },
   "devDependencies": {
     "mocha": "*",
@@ -51,9 +52,18 @@
     "gulp-nodemon": "*",
     "gulp-stylus": "*",
     "gulp-develop-server": "*",
-    "gulp-mocha": "*"
+    "gulp-mocha": "*",
+    "main-bower-files": "*",
+    "gulp-concat": "*",
+    "gulp-concat-css": "*",
+    "run-sequence": "*",
+    "gulp-clean": "*",
+    "gulp-uglify": "*",
+    "gulp-minify-css": "*",
+    "gulp-util": "*"
   },
   "engines": {
+    "bower": "*",
     "forever": "*",
     "gulp": "*",
     "nodemon": "*",

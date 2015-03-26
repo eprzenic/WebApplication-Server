@@ -1,6 +1,4 @@
-
 mongoose = require('mongoose')
-
 Log = mongoose.model('Log')
 
 exports.add = (name, type, value) ->
@@ -13,4 +11,9 @@ exports.add = (name, type, value) ->
     if err
       console.log(err)
       return 'NOK'
-  return 'OK'
+    return 'OK'
+
+exports.collection = (callback) ->
+  Log.find({},{}, (e, docs) ->
+    callback(docs)
+  )

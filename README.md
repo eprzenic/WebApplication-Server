@@ -1,6 +1,6 @@
 # Overview
 
-Gulp, Mongo, IcedCoffeScript (i.e. CoffeeScript), Node (see package.json for many modules), Express, Jade, Stylus (with Nib), Mocha, Chai, Sinon...
+Gulp, Mongo, IcedCoffeScript (i.e. CoffeeScript), Node, npm (see package.json for many modules), Express, Jade, Stylus (with Nib), Mocha, Chai, Sinon, Bower...
 
 A working template/boilerplate/experiment from doing a few hours research and several hours implementing.  Done to get started to make a live tested server application.  This is a first attempt to get a handle in this world, hope you like it.
 
@@ -10,13 +10,7 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 
 ## app
 #### consists of application code
-### assets
-##### 3rd party vendor code that requires compilation
-- css
-  - *.style
-- js
-  - *.js
-- *
+
 ### config
 ##### app options and linking
 - mongo
@@ -56,6 +50,7 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
   - which will lint the app, watch for changes, and start the web server (except for mongod)
 - gulpfile.js
   - lint
+  - build
   - watch
   - server
 
