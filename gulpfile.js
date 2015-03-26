@@ -19,7 +19,7 @@ var gutil = require('gulp-util');
 require('iced-coffee-script/register'); // register compiler with node
 
 var paths = {
-  app: ['./app/**/*.coffee'],
+  app: ['./app/**/*'],
   style: ['./app/**/*.styl'],
   test: ['./tests/**/*.coffee']
 };
@@ -76,8 +76,7 @@ gulp.task('test', function () {
 
 // Rerun the task when a file changes 
 gulp.task('watch', function() {
-  gulp.watch(paths.app, ['lint', 'server'])
-  gulp.watch(paths.style, ['styles'])
+  gulp.watch(paths.app, ['lint', 'styles', 'server'])
   gulp.watch(paths.tests, ['test'])
 });
 
