@@ -1,6 +1,5 @@
 var gulp = require('gulp')
-//var nodemon = require('gulp-nodemon')
-var coffee = require('gulp-iced-coffee');
+var coffee = require('gulp-coffee'); // ice not needed
 var sourcemaps = require('gulp-sourcemaps');
 var nib = require('nib'); // register compiler with node
 var coffeelint = require('gulp-coffeelint')
@@ -10,28 +9,18 @@ var server = require('gulp-develop-server');
 var bower = require('main-bower-files');
 var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
-var sequence = require('run-sequence');
 var clean = require('gulp-clean');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var gutil = require('gulp-util');
 
-require('iced-coffee-script/register'); // register compiler with node
+require('coffee-script/register'); // register compiler with node
 
 var paths = {
   app: ['./app/**/*'],
   style: ['./app/**/*.styl'],
   test: ['./tests/**/*.coffee']
 };
-
-// Get *.styl file and render 
-gulp.task('styles', function () {
-  gulp.src(paths.style)
-    .pipe(stylus({use: [nib()]}))
-    .pipe(concatCss("bundle.css"))
-    .pipe(minifyCss({keepBreaks:true}))
-    .pipe(gulp.dest('./public/css/'));
-});
 
 // *.js
 gulp.task('bower', function() {
@@ -41,20 +30,27 @@ gulp.task('bower', function() {
     .pipe(gulp.dest('./public/js'));
 });
 
-/*
+gulp.task('styles', function () {
+  gulp.src(paths.style)
+    .pipe(stylus({use: [nib()]}))
+    .pipe(concatCss("bundle.css"))
+    .pipe(minifyCss({keepBreaks:true}))
+    .pipe(gulp.dest('./public/css/'));
+});
+
 gulp.task('compile', function() {
-  gulp.src(paths.app)
-    .pipe(sourcemaps.init())
+  gulp.src('./app/views/**/*.coffee')
+//    .pipe(sourcemaps.init())
     .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(sourcemaps.write())
+//    .pipe(sourcemaps.write())
     .pipe(concat('app.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./public/'))
+    .pipe(gulp.dest('./public/js'))
 });
-*/
+
 
 gulp.task('lint', function () {
-  gulp.src(paths.app)
+  gulp.src(paths.app+'./app/**/*.coffee')
     .pipe(coffeelint())
     .pipe(coffeelint.reporter())
 });
@@ -76,40 +72,23 @@ gulp.task('test', function () {
 
 // Rerun the task when a file changes 
 gulp.task('watch', function() {
-  gulp.watch(paths.app, ['lint', 'styles', 'server'])
+  gulp.watch(paths.app, ['default'])
   gulp.watch(paths.tests, ['test'])
 });
 
 // run server 
-gulp.task( 'server', function() {
+gulp.task( 'run', function() {
   server.listen( { path: './server.js' } );
 });
 
-/*
-gulp.task('demon', function () {
-  nodemon({
-    script: 'server.js',
-    ext: 'html js coffee',
-    ignore: ['ignored.js'],
-    nodeArgs: [''] , // not nodemon args
-    env: {'NODE_ENV': 'development'}
-  })
-    //.on('change', ['watch'])
-    .on('restart', function () {
-      console.log('restarted!')
-    })
-})
-*/
 
 gulp.task('clean', function() {
     gulp.src('./public/*').pipe(clean());
 });
 
-gulp.task('build', function(callback) {
-  sequence('clean',
-           ['bower', 'styles'],
-           callback);
-});
+// view/client only
+gulp.task('client', ['clean', 'bower', 'styles', 'compile']);
+// server only
+gulp.task('server', ['lint', 'test', 'watch', 'run']);
 
-// The default task (called when you run `gulp` from cli) 
-gulp.task('default', ['lint', 'build', 'watch', 'server']);
+gulp.task('default', ['client','server']);

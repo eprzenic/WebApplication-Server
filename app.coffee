@@ -2,6 +2,7 @@
 express = require('express')
 iced = require("iced-coffee-script")
 mongoose = require('mongoose')
+BSON = require('mongodb').BSON
 http = require('http')
 stylus = require('stylus')
 nib = require('nib')
@@ -27,7 +28,7 @@ app.set('port', process.env.PORT || config.SERVER.PORT)
 # tell express that we want to use Jade, and where we will keep our views
 app.set('views', path.join(__dirname, 'app', 'views'))
 app.set('view options',{ locals: { } })
-app.set('view engine', 'jade')
+app.set('view engine', 'jade') # Note: replaced by jade-coffeescript
 #app.locals.<variable/function>
 
 # pass 'middleware' functions for express to use

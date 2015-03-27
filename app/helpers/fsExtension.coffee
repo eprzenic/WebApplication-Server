@@ -1,7 +1,6 @@
 fs = require('fs')
 path = require('path')
 dir = require('node-dir')
-_ = require('lodash')
 
 module.exports =
   getAllSubDirectories: (dirPath, done) ->

@@ -2,12 +2,16 @@ log = require.main.require('./app/controllers/log')
 
 module.exports = (router) ->
   index = (req, res) ->
-    log.collection( (docs) ->
+    search = req.params.search
+    search = search.replace(':','')
+    options = search.split('..')
+
+    log.collection(options[0], (docs) ->
       res.render('log/index', {
           title: 'Log',
-          "logs" : docs
+          logs : docs
         }
       )
     )
 
-  router.get '/log', index
+  router.get '/log:search', index
