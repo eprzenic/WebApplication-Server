@@ -7,10 +7,11 @@ block content
           li=log.value
           br
 
-    canvas#myChart(width='800', height='600')
+    canvas#myChart(width='800', height='400')
 
     script.
       // Get the context of the canvas element we want to select
       ctx = document.getElementById('myChart').getContext('2d')
-      myLineChart = new Chart(ctx).Line((new Log).prepData(!{JSON.stringify(logs)}))
+      log = new Log()
+      myLineChart = new Chart(ctx).Bar(log.data(!{JSON.stringify(logs)}))
       myLineChart.update()

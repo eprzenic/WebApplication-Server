@@ -87,7 +87,7 @@ gulp.task('clean', function() {
 });
 
 // view/client only
-gulp.task('client', ['clean', 'bower', 'styles', 'compile']);
+gulp.task('client', ['bower', 'styles', 'compile']);
 // server only
 gulp.task('server', ['lint', 'test', 'watch', 'run']);
 
