@@ -72,13 +72,19 @@ gulp.task('test', function () {
 
 // Rerun the task when a file changes 
 gulp.task('watch', function() {
-  gulp.watch(paths.app, ['default'])
+  gulp.watch(paths.app, ['default', 'restart'])
+  gulp.watch(paths.app, server.restart)
   gulp.watch(paths.tests, ['test'])
 });
 
 // run server 
-gulp.task( 'run', function() {
+gulp.task('run', function() {
   server.listen( { path: './server.js' } );
+});
+
+// restart server
+gulp.task('restart', ['default'], function() {
+  server.restart()
 });
 
 gulp.task('clean', function (cb) {
