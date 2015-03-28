@@ -14,6 +14,6 @@ exports.add = (name, type, value) ->
     return 'OK'
 
 exports.collection = (name, callback) ->
-  Log.find({'name': name},{}, (e, docs) ->
-    callback(docs)
+  Log.find({'name': name},{}, (e, doc) ->
+    callback(doc)
   )

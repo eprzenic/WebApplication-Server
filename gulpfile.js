@@ -9,7 +9,7 @@ var server = require('gulp-develop-server');
 var bower = require('main-bower-files');
 var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
-var clean = require('gulp-clean');
+var del = require('del');
 var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var gutil = require('gulp-util');
@@ -81,13 +81,12 @@ gulp.task( 'run', function() {
   server.listen( { path: './server.js' } );
 });
 
-
-gulp.task('clean', function() {
-    gulp.src('./public/*').pipe(clean());
+gulp.task('clean', function (cb) {
+  del(['./public/**/*'], cb);
 });
 
 // view/client only
-gulp.task('client', ['bower', 'styles', 'compile']);
+gulp.task('client', ['clean', 'bower', 'styles', 'compile']);
 // server only
 gulp.task('server', ['lint', 'test', 'watch', 'run']);
 

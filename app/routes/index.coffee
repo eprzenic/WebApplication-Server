@@ -1,3 +1,4 @@
+# root
 module.exports = (router) ->
   # home page
   index = (req, res) ->

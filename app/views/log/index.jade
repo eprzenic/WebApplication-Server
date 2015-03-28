@@ -12,6 +12,5 @@ block content
     script.
       // Get the context of the canvas element we want to select
       ctx = document.getElementById('myChart').getContext('2d')
-      log = new Log()
-      myLineChart = new Chart(ctx).Bar(log.data(!{JSON.stringify(logs)}))
+      myLineChart = new Chart(ctx).Bar((new Log()).data(!{JSON.stringify(logs)}))
       myLineChart.update()

@@ -5,7 +5,6 @@ module.exports = (router) ->
     search = req.params.search
     search = search.replace(':','')
     options = search.split('..')
-
     log.collection(options[0], (docs) ->
       res.render('log/index', {
           title: 'Log',
