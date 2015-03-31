@@ -14,6 +14,11 @@ exports.add = (name, type, value) ->
     return 'OK'
 
 exports.collection = (name, callback) ->
-  Log.find({'name': name},{}, (e, doc) ->
+  now = new Date()
+  start = new Date(now)
+  numDays = 1
+  start.setDate(start.getDate - numDays)
+
+  Log.find({'name': name, 'created': {$gt: start }},{}, (e, doc) ->
     callback(doc)
   )

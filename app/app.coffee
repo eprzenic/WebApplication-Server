@@ -42,14 +42,14 @@ app.use(errorHandler())
 
 app.use( stylus.middleware(
   src: __dirname + '/views/stylus'
-  dest: __dirname + '../public'
+  dest: __dirname + '../dist'
   debug: true
   compile: (str, path) ->
     stylus(str).set('filename', path).set('compress').use(nib())
   )
 )
 
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, '../dist')))
 
 # Setup which compiler to use for js files
 icedCompiler =
