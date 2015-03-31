@@ -27,7 +27,7 @@ gulp.task('bower', function() {
   return gulp.src(bower())
     .pipe(concat('vendor.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./public/js'));
+    .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('styles', function () {
@@ -35,7 +35,7 @@ gulp.task('styles', function () {
     .pipe(stylus({use: [nib()]}))
     .pipe(concatCss("bundle.css"))
     .pipe(minifyCss({keepBreaks:true}))
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('compile', function() {
@@ -45,7 +45,7 @@ gulp.task('compile', function() {
 //    .pipe(sourcemaps.write())
     .pipe(concat('app.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./public/js'))
+    .pipe(gulp.dest('./dist/js'))
 });
 
 
@@ -88,7 +88,7 @@ gulp.task('restart', ['default'], function() {
 });
 
 gulp.task('clean', function (cb) {
-  del(['./public/**/*'], cb);
+  del(['./dist/**/*'], cb);
 });
 
 // view/client only
