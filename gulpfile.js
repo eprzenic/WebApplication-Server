@@ -91,8 +91,12 @@ gulp.task('clean', function (cb) {
   del(['./dist/**/*'], cb);
 });
 
+gulp.task('copy', function() {
+  gulp.src(['./public/**/*']).pipe(gulp.dest('./dist'));
+});
+
 // view/client only
-gulp.task('client', ['clean', 'bower', 'styles', 'compile']);
+gulp.task('client', ['clean', 'bower', 'styles', 'copy', 'compile']);
 // server only
 gulp.task('server', ['lint', 'test', 'watch', 'run']);
 
