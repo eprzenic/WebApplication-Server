@@ -16,7 +16,7 @@ router.use( (req, res, next) ->
 )
 
 # load ALL folder'd routes
-fsWrapper.getAllSubDirectories(__dirname+'/routes', (err, results) ->
+fsWrapper.getAllSubDirectories(__dirname + '/routes', (err, results) ->
   if err
     throw err
   require.main.require('./app/routes')(router)
@@ -24,6 +24,5 @@ fsWrapper.getAllSubDirectories(__dirname+'/routes', (err, results) ->
     require.main.require('./app/routes' + relativePath)(router)
   )
 )
-
 
 module.exports = router

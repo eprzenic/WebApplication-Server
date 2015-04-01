@@ -14,6 +14,8 @@ errorHandler = require('errorhandler')
 methodOverride = require('method-override')
 serveStatic = require('serve-static')
 multer = require('multer')
+cors = require('cors')
+helmet = require('helmet')
 
 ## Global (visibility)  ##
 global._ = require('lodash')
@@ -32,6 +34,22 @@ app.set('view engine', 'jade') # Note: replaced by jade-coffeescript
 #app.locals.<variable/function>
 
 # pass 'middleware' functions for express to use
+app.use(cors())
+app.use(helmet.contentSecurityPolicy({
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'"],
+    styleSrc: ["'self'"],
+    imgSrc: ["'self'"],
+    connectSrc: ["'self'"],
+    fontSrc: ["'self'"],
+    objectSrc: ["'none'"],
+    mediaSrc: ["'self'"],
+    frameSrc: ["'none'"],
+    # reportUri: '/report-violation',
+    reportOnly: false, # set to true if you only want to report errors
+    setAllHeaders: false, # set to true if you want to set all headers
+    safari5: false # set to true if you want to force buggy CSP in Safari 5
+}))
 app.use(morgan('dev'))
 app.use(methodOverride())
 app.use(bodyParser.json())

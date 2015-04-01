@@ -6,11 +6,11 @@ module.exports = (router) ->
     search = search.replace(':','')
     options = search.split('..')
     log.collection(options[0], (docs) ->
-      res.render('log/index', {
-          title: 'Log',
+      res.render('logs/index', {
+          title: 'Logs',
           logs : docs
         }
       )
     )
 
-  router.get '/log:search', index
+  router.get '/logs:search', index

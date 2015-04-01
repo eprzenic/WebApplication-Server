@@ -8,4 +8,4 @@ start mongod --dbpath C:\Temp\data
 
 call npm install
 call bower install
-call forever -m 6 server.js
+gulp

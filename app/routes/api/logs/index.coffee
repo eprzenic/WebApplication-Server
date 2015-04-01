@@ -2,8 +2,14 @@
 log = require.main.require('./app/controllers/log')
 
 module.exports = (router) ->
-  # api/log?name=test&value=0&type=thisorthat
-  add = (req, res) ->
+
+  read = (req, res) ->
+    response = log.collection(undefined, (docs) ->
+      res.send(docs)
+    )
+
+  # api/logs?name=test&value=0&type=thisorthat
+  create = (req, res) ->
     response = log.add(req.query.name, req.query.type, req.query.value)
     res.send(response)
 
@@ -18,18 +24,14 @@ module.exports = (router) ->
     derp = req.body.derp
     slurp = req.body.slurp
 
-  create = (req, resp) ->
-    console.log(req.body) # JSON
-    res.send('OK')
-
   remove = (req, resp) ->
     console.log(req.body) # JSON
     res.send('OK')
 
-  logBase = '/api/log'
+  logBase = '/api/logs'
   # Note: GET should not be used for create, but...
   # tool used designed for only this type of request
-  router.get logBase, add
+  router.get logBase, read
   router.put logBase, create
   router.post logBase, update
   router.delete logBase, remove

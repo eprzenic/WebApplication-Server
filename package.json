@@ -36,7 +36,10 @@
     "tcp-port-used": "*",
     "ps-tree": "*",
     "marked": "*",
-    "node-dir": "*"
+    "node-dir": "*",
+    "connect-assets": "*",
+    "cors": "*",
+    "helmet": "*"
   },
   "devDependencies": {
     "mocha": "*",
