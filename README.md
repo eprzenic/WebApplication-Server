@@ -32,13 +32,16 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 ### views
 ##### manages the display of information from route requested and controller retrieving model
 
-## public
+### dist
+##### what is visible and distributed to client
+
+### public
 ##### compiled/static files server to browser
 - images
 - html
 - *
 
-## tests
+### tests
 ##### mocha as test framework, chai for assertion and sinon as spyes/stubs/mocks
 
 ## server.js & app.coffee

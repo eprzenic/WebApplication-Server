@@ -15,7 +15,7 @@ router.use( (req, res, next) ->
   next()
 )
 
-# load ALL folder'd routes
+# load ALL folder'd routes (must have at least index an file)
 fsWrapper.getAllSubDirectories(__dirname + '/routes', (err, results) ->
   if err
     throw err

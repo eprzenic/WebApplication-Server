@@ -1,6 +1,6 @@
 {
-  "name": "WebApplication-Server-master",
-  "version": "0.0.1",
+  "name": "Server",
+  "version": "0.0.0",
   "moduleType": [
     "globals"
   ],
@@ -13,8 +13,8 @@
     "tests"
   ],
   "dependencies": {
-    "Chart.js": "*",
-    "lodash": "*",
-    "moment": "*"
+    "Chart.js": "~1.0.2",
+    "lodash": "~3.6.0",
+    "moment": "~2.9.0"
   }
 }

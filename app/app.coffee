@@ -5,7 +5,6 @@ mongoose = require('mongoose')
 BSON = require('mongodb').BSON
 http = require('http')
 stylus = require('stylus')
-nib = require('nib')
 path = require('path')
 assets = require('connect-assets')
 bodyParser = require('body-parser')
@@ -24,11 +23,11 @@ global._ = require('lodash')
 app = express()
 
 # Configuration #
-config = require('./config.json')
+config = require.main.require('./config/environment.json')
 app.set('port', process.env.PORT || config.SERVER.PORT)
 
 # tell express that we want to use Jade, and where we will keep our views
-app.set('views', path.join(__dirname, 'views'))
+app.set('views', path.join(__dirname, 'templates'))
 app.set('view options',{ locals: { } })
 app.set('view engine', 'jade') # Note: replaced by jade-coffeescript
 #app.locals.<variable/function>
@@ -59,11 +58,11 @@ app.use(multer())
 app.use(errorHandler())
 
 app.use( stylus.middleware(
-  src: __dirname + '/views/stylus'
+  src: __dirname + '/styles/stylus'
   dest: __dirname + '../dist'
   debug: true
   compile: (str, path) ->
-    stylus(str).set('filename', path).set('compress').use(nib())
+    stylus(str).set('filename', path).set('compress').use()
   )
 )
 
@@ -86,7 +85,7 @@ app.use assets(
 )
 
 # Mongo Init #
-require.main.require('./app/configurations/mongo')
+require.main.require('./app/helpers/mongo')
 
 # Routing #
 router = require.main.require('./app/router')

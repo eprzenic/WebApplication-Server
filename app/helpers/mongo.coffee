@@ -1,7 +1,7 @@
 # Init and register mongo schemas
 mongoose = require('mongoose')
 
-config = require.main.require('./config.json')
+config = require.main.require('./config/environment.json')
 
 db = mongoose.connection
 

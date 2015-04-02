@@ -1,7 +1,6 @@
 var gulp = require('gulp')
 var coffee = require('gulp-coffee'); // ice not needed
 var sourcemaps = require('gulp-sourcemaps');
-var nib = require('nib'); // register compiler with node
 var coffeelint = require('gulp-coffeelint')
 var mocha = require('gulp-mocha');
 var stylus = require('gulp-stylus');
@@ -32,14 +31,14 @@ gulp.task('bower', function() {
 
 gulp.task('styles', function () {
   gulp.src(paths.style)
-    .pipe(stylus({use: [nib()]}))
+    .pipe(stylus({use: []}))
     .pipe(concatCss("bundle.css"))
     .pipe(minifyCss({keepBreaks:true}))
     .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('compile', function() {
-  gulp.src('./app/views/**/*.coffee')
+  gulp.src('./app/templates/**/*.coffee')
 //    .pipe(sourcemaps.init())
     .pipe(coffee({bare: true}).on('error', gutil.log))
 //    .pipe(sourcemaps.write())
@@ -95,9 +94,9 @@ gulp.task('copy', function() {
   gulp.src(['./public/**/*']).pipe(gulp.dest('./dist'));
 });
 
-// view/client only
-gulp.task('client', ['clean', 'bower', 'styles', 'copy', 'compile']);
+// view (client side)
+gulp.task('view', ['clean', 'bower', 'styles', 'copy', 'compile']);
 // server only
 gulp.task('server', ['lint', 'test', 'watch', 'run']);
 
-gulp.task('default', ['client','server']);
+gulp.task('default', ['view','server']);

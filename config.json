@@ -1,8 +1,0 @@
-{
-  "SERVER": {
-    "PORT": "3000"
-  },
-  "MONGO": {
-    "CONNECTION": "mongodb://192.168.1.120/Server"
-  }
-}
