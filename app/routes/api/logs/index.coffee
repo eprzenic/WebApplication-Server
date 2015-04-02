@@ -1,16 +1,16 @@
 # CRUD operations with controller
-log = require.main.require('./app/controllers/log')
+logs = require.main.require('./app/controllers/logs')
 
 module.exports = (router) ->
 
   read = (req, res) ->
-    response = log.collection(undefined, (docs) ->
+    response = logs.collection(undefined, (docs) ->
       res.send(docs)
     )
 
   # api/logs?name=test&value=0&type=thisorthat
   create = (req, res) ->
-    response = log.add(req.query.name, req.query.type, req.query.value)
+    response = logs.add(req.query.name, req.query.type, req.query.value)
     res.send(response)
 
   ###

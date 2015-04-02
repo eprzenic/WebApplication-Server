@@ -1,4 +1,4 @@
-log = require.main.require('./app/controllers/log')
+log = require.main.require('./app/controllers/logs')
 
 module.exports = (router) ->
   index = (req, res) ->
