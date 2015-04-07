@@ -27,7 +27,7 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
 ##### represents data that handles storage using mongo schemas
 
 ### routes
-##### determining response to request to a particular endpoint (GET, PUT, PST, DELETE, and so on)
+##### determining response to request to a particular endpoint (GET, PUT, POST, DELETE, and so on)
 
 ### views
 ##### manages the display of information from route requested and controller retrieving model
