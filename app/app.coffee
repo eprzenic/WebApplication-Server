@@ -15,6 +15,10 @@ serveStatic = require('serve-static')
 multer = require('multer')
 cors = require('cors')
 helmet = require('helmet')
+passport = require('passport')
+LocalStrategy = require('passport-local').Strategy
+passportLocalMongoose = require('passport-local-mongoose')
+oauth2orize = require('oauth2orize')
 
 ## Global (visibility)  ##
 global._ = require('lodash')
@@ -84,8 +88,20 @@ app.use assets(
     coffee: icedCompiler
 )
 
-# Mongo Init #
+# Mongo init #
 require.main.require('./app/helpers/mongo')
+
+# passport config
+app.use(passport.initialize());
+app.use(passport.session());
+
+Account = require('./models/account')
+passport.use(new LocalStrategy(Account.authenticate()))
+passport.serializeUser(Account.serializeUser())
+passport.deserializeUser(Account.deserializeUser())
+
+# passport oauth2
+#ToDo: https://github.com/jaredhanson/oauth2orize/tree/master/examples/express2
 
 # Routing #
 router = require.main.require('./app/router')
