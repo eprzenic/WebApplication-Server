@@ -17,6 +17,7 @@ cors = require('cors')
 helmet = require('helmet')
 passport = require('passport')
 LocalStrategy = require('passport-local').Strategy
+ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy
 passportLocalMongoose = require('passport-local-mongoose')
 oauth2orize = require('oauth2orize')
 
@@ -102,6 +103,16 @@ passport.deserializeUser(Account.deserializeUser())
 
 # passport oauth2
 #ToDo: https://github.com/jaredhanson/oauth2orize/tree/master/examples/express2
+# http://aleksandrov.ws/2013/09/12/restful-api-with-nodejs-plus-mongodb/
+https://github.com/jaredhanson/oauth2orize/tree/master/examples/express2
+oauth = oauth2orize.createServer()
+passport.use(new ClientPasswordStrategy((clientId, clientSecret, done) ->
+  console.log("*** ClientPasswordStrategy")
+  client = new
+    clientId = "..."
+    clientSecret = "..."
+  done(null, client)
+))
 
 # Routing #
 router = require.main.require('./app/router')
