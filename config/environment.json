@@ -3,6 +3,6 @@
     "PORT": "3000"
   },
   "MONGO": {
-    "CONNECTION": "mongodb://localhost/Server"
+    "CONNECTION": "mongodb://localhost:27017/SmartThings"
   }
 }

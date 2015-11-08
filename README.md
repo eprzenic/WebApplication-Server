@@ -63,3 +63,11 @@ It was used to simply log information (See my repository SmartThings [DeviceLogg
   - run.bat
 - OSX & Linux
   - run.sh
+
+# Run on Startup
+#### Ubuntu
+
+/etc/init/web-application-server.conf
+
+start on startup
+exec forever start /full/path/to/server.js

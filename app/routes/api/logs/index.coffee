@@ -14,7 +14,7 @@ module.exports = (router) ->
     res.send(response)
 
   ###
-  app.get('/log/:name', function(req, res) {
+  app.get('/logs/:name', function(req, res) {
     res.send('name ' + req.params.name);
   });
   ###
